@@ -1,5 +1,6 @@
 // Reference the form
 const searchByCityEl = document.querySelector("#search-by-city");
+const searchFormEl = document.querySelector("#search-form");
 
 // Get current and future weather conditions using One Call API
 const getWeatherConditions = function() {
