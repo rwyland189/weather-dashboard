@@ -1,5 +1,11 @@
 var getWeatherConditions = function() {
-    console.log("function called lol hi hay");
+    fetch("https://api.openweathermap.org/data/2.5/onecall?lat={lat}&lon={lon}&exclude={part}&appid={API key}").then(function(response) {
+        response.json().then(function(data) {
+            console.log(data);
+        });
+    });
 };
+
+
 
 getWeatherConditions();
