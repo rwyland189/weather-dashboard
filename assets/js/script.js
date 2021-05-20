@@ -1,1 +1,5 @@
-console.log("this script file is sourced correctly bitch");
+var getWeatherConditions = function() {
+    console.log("function called lol hi hay");
+};
+
+getWeatherConditions();
