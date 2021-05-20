@@ -4,25 +4,27 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Link Tailwind CSS -->
+    <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
     <!-- Link CSS -->
     <link rel="stylesheet" href="./assets/css/style.css" />
     <title>Weather Dashboard</title>
 </head>
 <body>
-    <header>
-        <h1>Weather Dashboard</h1>
+    <header class="p-5 h-24 bg-gradient-to-r from-blue-400 via-blue-700 via-blue-900 to-indigo-900">
+        <h1 class="text-center text-5xl text-white font-bold">Weather Dashboard</h1>
     </header>
 
-    <main>
+    <main class="flex">
         <!-- Search for a City side bar -->
-        <section>
+        <aside class="w-3/12">
             <h2>Search for a City:</h2>
             <form>                
                 <input type="text" id="" placeholder="Madison" name="search-bar" />
                 <br />
                 <button type="submit">Search</button>
             </form>
-        </section>
+        </aside>
 
         <!-- Display current and future weather conditions -->
         <section>
