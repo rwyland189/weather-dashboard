@@ -12,9 +12,15 @@ const getWeatherConditions = function() {
     // make a request using fetch
     fetch(apiUrl).then(function(response) {
         response.json().then(function(data) {
-            console.log(data);
+            //console.log(data);
         });
     });
+};
+
+// Function to perform upon form submission
+const formSubmitHandler = function(event) {
+    event.preventDefault();
+    //console.log(event);
 };
 
 
