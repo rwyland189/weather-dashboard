@@ -35,6 +35,13 @@ const getWeatherConditions = function(cityName) {
             searchTermEl.innerText = cityName;
 
             searchTermEl.appendChild(searchTerm);
+
+            // display temp
+            const tempEl = document.getElementById("temp");
+            const temp = document.createElement("p");
+            // something funky here?? where oneCallData is
+            tempEl.innerText = oneCallData.current.temp;
+            tempEl.appendChild(temp);
         });
     });
 };
@@ -50,4 +57,4 @@ const formSubmitHandler = function(event) {
 searchFormEl.addEventListener("submit", formSubmitHandler);
 
 //left off on 6.2.4
-// getWeatherConditions();
+//getWeatherConditions();
