@@ -1,6 +1,8 @@
 // Reference the form
 const searchByCityEl = document.getElementById("search-by-city");
 const searchFormEl = document.getElementById("search-form");
+// reference search-term id
+const searchTermEl = document.getElementById("search-term");
 
 const appId = "&appid=18b93bcb5dc1cfcbc507982a4bf6e1bd";
 
@@ -21,27 +23,26 @@ const getWeatherConditions = function(cityName) {
             fetch(oneCallApiUrl).then(function(oneCallData) {
                 // oneCallData similar to response, data2 similar to data
                 oneCallData.json().then(function(data2) {
-                console.log(data2);
+                    console.log(data2);
+
+                    // create HTML element where city name will be displayed
+                    const searchTerm = document.createElement("h2");
+
+                    // update header with search term input
+                    searchTermEl.innerText = cityName;
+
+                    searchTermEl.appendChild(searchTerm);
+
+                    // display temp
+                    const tempEl = document.getElementById("temp");
+                    const temp = document.createElement("p");
+                    tempEl.innerText = data2.current.temp;
+                    tempEl.appendChild(temp);
+
+                    // display humidity
+                    
                 });
-            });
-
-            // reference search-term id
-            const searchTermEl = document.getElementById("search-term");
-
-            // create HTML element where city name will be displayed
-            const searchTerm = document.createElement("h2");
-
-            // update header with search term input
-            searchTermEl.innerText = cityName;
-
-            searchTermEl.appendChild(searchTerm);
-
-            // display temp
-            const tempEl = document.getElementById("temp");
-            const temp = document.createElement("p");
-            // something funky here?? where oneCallData is
-            tempEl.innerText = oneCallData.current.temp;
-            tempEl.appendChild(temp);
+            }); 
         });
     });
 };
