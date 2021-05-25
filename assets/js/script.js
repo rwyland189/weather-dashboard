@@ -11,26 +11,33 @@ const getWeatherConditions = function(cityName) {
 
     // make a request using fetch
     fetch(apiUrl).then(function(response) {
-        console.log(response);
         response.json().then(function(data) {
-            console.log(data);
-        });
-    });
+            //console.log(data);
 
-    
+            // Variable to get lat and lon of city
+            const oneCallApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&exclude=minutely,hourly${appId}`;
+            // console.log(oneCallApiUrl);
 
-    // Variable to get lat and lon of city
-    const oneCallApiUrl = `https://api.openweathermap.org/data/2.5/onecall?lat=${data.coord.lat}&lon=${data.coord.lon}&exclude=minutely,hourly${appId}`;
-    console.log(oneCallApiUrl);
+            fetch(oneCallApiUrl).then(function(oneCallData) {
+                // oneCallData similar to response, data2 similar to data
+                oneCallData.json().then(function(data2) {
+                console.log(data2);
+                });
+            });
 
-    fetch(oneCallApiUrl).then(function(oneCallData) {
-        oneCallData.json().then(function(data2) {
-            console.log(data2);
+            // reference search-term id
+            const searchTermEl = document.getElementById("search-term");
+
+            // create HTML element where city name will be displayed
+            const searchTerm = document.createElement("h2");
+
+            // update header with search term input
+            searchTermEl.innerText = cityName;
+
+            searchTermEl.appendChild(searchTerm);
         });
     });
 };
-
-
 
 // Function to perform upon form submission
 const formSubmitHandler = function(event) {
