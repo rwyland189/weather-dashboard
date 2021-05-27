@@ -39,8 +39,23 @@ const getWeatherConditions = function(cityName) {
                     tempEl.innerText = data2.current.temp;
                     tempEl.appendChild(temp);
 
+                    // display wind
+                    const windEl = document.getElementById("wind");
+                    const wind = document.createElement("p");
+                    windEl.innerText = data2.current.wind_speed;
+                    windEl.appendChild(wind);
+
                     // display humidity
-                    
+                    const humidityEl = document.getElementById("humidity");
+                    const humidity = document.createElement("p");
+                    humidityEl.innerText = data2.current.humidity;
+                    humidityEl.appendChild(humidity);
+
+                    // display UV index
+                    const uvIndexEl = document.getElementById("uv-index");
+                    const uvIndex = document.createElement("p");
+                    uvIndexEl.innerText = data2.current.uvi;
+                    uvIndexEl.appendChild(uvIndex);
                 });
             }); 
         });
