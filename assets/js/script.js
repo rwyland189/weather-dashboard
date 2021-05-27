@@ -33,6 +33,7 @@ const getWeatherConditions = function(cityName) {
 
                     searchTermEl.appendChild(searchTerm);
 
+                    // Display Current Conditions
                     // display temp
                     const tempEl = document.getElementById("temp");
                     const temp = document.createElement("p");
@@ -56,6 +57,34 @@ const getWeatherConditions = function(cityName) {
                     const uvIndex = document.createElement("p");
                     uvIndexEl.innerText = data2.current.uvi;
                     uvIndexEl.appendChild(uvIndex);
+                    // End Current Conditions
+
+                    // Display 5-Day Forecast
+                    // display tomorrow
+                        // display temp
+                        const tempTomorrowEl = document.getElementById("temp-tomorrow");
+                        const tempTomorrow = document.createElement("p");
+                        tempTomorrowEl.innerText = data2.daily[0].temp;
+                        tempTomorrowEl.appendChild(tempTomorrow);
+
+                        // display wind
+                        // const windTwoDaysEl = document.getElementById("wind-two-days");
+                        // const windTwoDays = document.createElement("p");
+                        // windTwoDaysEl.innerText = data2.current.wind_speed;
+                        // windTwoDaysEl.appendChild(windTwoDays);
+
+                        // display humidity
+                        // const humidityEl = document.getElementById("humidity");
+                        // const humidity = document.createElement("p");
+                        // humidityEl.innerText = data2.current.humidity;
+                        // humidityEl.appendChild(humidity);
+
+                        // // display UV index
+                        // const uvIndexEl = document.getElementById("uv-index");
+                        // const uvIndex = document.createElement("p");
+                        // uvIndexEl.innerText = data2.current.uvi;
+                        // uvIndexEl.appendChild(uvIndex);
+                    // End 5-Day Forecast
                 });
             }); 
         });
@@ -74,3 +103,4 @@ searchFormEl.addEventListener("submit", formSubmitHandler);
 
 //left off on 6.2.4
 //getWeatherConditions();
+
